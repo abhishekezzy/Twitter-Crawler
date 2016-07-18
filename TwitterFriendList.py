@@ -2,6 +2,7 @@ import twurl2
 import urllib
 import json
 import hidden2
+import os
 secret=hidden2.oauth1()
 tweeturl="https://api.twitter.com/1.1/friends/list.json?"
 while True:
@@ -17,7 +18,7 @@ while True:
         print "Name: ", u['name']
         print "Location: ", u['location']
         print "Total followers: ", u['followers_count']
-        path="C:\\Users\\Abhishek\\Desktop\\"+u['name']+"image.jpg"
+        path=str(os.path.expanduser('~'))+u['name']+"image.jpg"
         try:
             print "Latest Tweet: ", u['status']['text']
         except:
